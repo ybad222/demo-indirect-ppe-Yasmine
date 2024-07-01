@@ -70,9 +70,9 @@ app.use(['/mybooking'], function (req, res) {
     res.status(200);
     let data = {"RLOC": req.query.rloc||'None'}
     if (req.query.rloc === 'RWSA49'){
-        data = JSON.parse(fs.readFileSync("./nce-lhr.json"));
+        data = JSON.parse(fs.readFileSync("./views/nce-lhr.json"));
     } else if (req.query.rloc === 'RWSA48'){
-        data = JSON.parse(fs.readFileSync("./nce-mad.json"));
+        data = JSON.parse(fs.readFileSync("./views/nce-mad.json"));
     }
     data.MODIFY = req.query.modifyAction||'payment';
     if (!data.MEDICAL){
@@ -121,9 +121,9 @@ function email(req,res){
     let rloc = true
     let data = {"RLOC": req.query.rloc||'None'}
     if (req.query.rloc === 'RWSA49'){
-        data = JSON.parse(fs.readFileSync("./nce-lhr.json"));
+        data = JSON.parse(fs.readFileSync("./views/nce-lhr.json"));
     } else if (req.query.rloc === 'RWSA48'){
-        data = JSON.parse(fs.readFileSync("./nce-mad.json"));
+        data = JSON.parse(fs.readFileSync("./views/nce-mad.json"));
     } else {
         // Redirect to standard email
         rloc = false;
